@@ -221,7 +221,7 @@ jobs:
         name: build
         path: dist
     - name: Update repo with build
-      uses: mikeal/publish-to-github-action@master
+      uses: bryopsida/publish-to-github-action@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
