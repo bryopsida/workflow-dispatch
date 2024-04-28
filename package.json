@@ -5,7 +5,9 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "ncc build src/main.ts -o dist",
-    "lint": "eslint src/"
+    "bundle": "npm run lint:fix && npm run build",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix"
   },
   "keywords": [
     "github",
