@@ -46,6 +46,7 @@ jobs:
         token: ${{ secrets.PERSONAL_TOKEN }}
         inputs: '{"message": "blah blah"}'
         wait-for-completion: false
+        ref: main
 
   echo-2-test:
     needs: [build]
@@ -65,6 +66,7 @@ jobs:
         workflow: echo-2.yaml
         token: ${{ secrets.PERSONAL_TOKEN }}
         wait-for-completion: false
+        ref: main
 
     # - name: Invoke echo 1 workflow by id
     #   uses: ./
@@ -94,6 +96,7 @@ jobs:
         token: ${{ secrets.PERSONAL_TOKEN }}
         wait-for-completion-interval: 10s
         wait-for-completion-timeout: 5m
+        ref: main
       continue-on-error: true
     - uses: bryopsida/assert-action@main
       with:
@@ -124,6 +127,7 @@ jobs:
         token: ${{ secrets.PERSONAL_TOKEN }}
         wait-for-completion-interval: 10s
         wait-for-completion-timeout: 5m
+        ref: main
       continue-on-error: true
     - run: echo "worflow-conclusion=${{ steps.failing-workflow.outputs.workflow-conclusion }}"
     - uses: bryopsida/assert-action@main
@@ -155,6 +159,7 @@ jobs:
         token: ${{ secrets.PERSONAL_TOKEN }}
         wait-for-completion-interval: 10s
         wait-for-completion-timeout: 30s
+        ref: main
       continue-on-error: true
     - uses: bryopsida/assert-action@main
       with:
@@ -186,6 +191,7 @@ jobs:
         wait-for-completion-interval: 10s
         wait-for-completion-timeout: 120s
         workflow-logs: print
+        ref: main
       continue-on-error: true
     - uses: bryopsida/assert-action@main
       with:
