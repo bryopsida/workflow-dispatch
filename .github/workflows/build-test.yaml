@@ -202,26 +202,3 @@ jobs:
     #     repo: benc-uk/dapr-store
     #     token: ${{ secrets.PERSONAL_TOKEN }}
     #     ref: master 
-
-  deploy:
-    needs:
-      - echo-1-test
-      - echo-2-test
-      - long-running-test
-      - failing-test
-      - timeout-test
-      - print-workflow-logs-test
-    runs-on: ubuntu-latest
-    steps:
-    - name: Check out repository
-      uses: actions/checkout@v4
-    - name: Download dist
-      uses: actions/download-artifact@v4
-      with:
-        name: build
-        path: dist
-    - name: Update repo with build
-      uses: bryopsida/publish-to-github-action@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
